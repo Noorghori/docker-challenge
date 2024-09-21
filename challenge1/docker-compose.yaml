@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    image: docker-challenge-solved-noor-afazal
+    image: docker-challenge-solved-noor-afazal #this image is committed to mkassain docker challenge repo
     ports:
       - "80:80"
     networks:
@@ -9,7 +9,7 @@ services:
 
   metrics-scraper:
     build:
-      context: ./metrics-scraper  # Adjust if necessary
+      context: ./metrics-scraper 
       dockerfile: Dockerfile
     environment:
       - TARGET_HOST=nginx:80
