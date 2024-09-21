@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nginx:
+    image: docker-challenge-solved-noor-afazal
+    ports:
+      - "80:80"
+    networks:
+      - your-network
+
+  metrics-scraper:
+    build:
+      context: ./metrics-scraper  # Adjust if necessary
+      dockerfile: Dockerfile
+    environment:
+      - TARGET_HOST=nginx:80
+    networks:
+      - your-network
+
+networks:
+  your-network:
+    driver: bridge
